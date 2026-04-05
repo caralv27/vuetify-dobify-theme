@@ -1,0 +1,425 @@
+/**
+ * Core Component Styles
+ *
+ * Styles for common layout components: app bar, drawer, user menu, etc.
+ */
+
+// =============================================
+// LAYOUT BASE
+// =============================================
+.v-layout {
+  min-height: 100vh;
+}
+
+// =============================================
+// APP BAR / TOOLBAR
+// =============================================
+.app-bar,
+.crud-bar {
+  background: rgb(var(--v-theme-surface)) !important;
+  border-bottom: 1px solid rgb(var(--v-theme-surface-variant)) !important;
+}
+
+.app-bar__title,
+.crud-bar__title {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.app-bar__action,
+.crud-bar__action {
+  color: rgb(var(--v-theme-on-surface-variant));
+  margin-left: 4px;
+}
+
+.crud-bar__action--delete:hover {
+  color: rgb(var(--v-theme-error));
+}
+
+.crud-bar__action--add {
+  background: rgb(var(--v-theme-primary)) !important;
+  color: white !important;
+  margin-left: 8px;
+}
+
+.app-bar__user {
+  padding: 4px 8px !important;
+  height: auto !important;
+}
+
+.app-bar__avatar {
+  font-size: 0.75rem;
+}
+
+// Dark theme - App Bar
+.v-theme--dark .app-bar,
+.v-theme--dark .crud-bar {
+  background: rgb(var(--v-theme-surface-bright)) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+// =============================================
+// SEARCH BAR (Expandable)
+// =============================================
+.crud-bar__search {
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 16px;
+}
+
+.crud-bar__search--mobile {
+  flex: 1;
+  max-width: none;
+  margin: 0 8px;
+}
+
+.crud-bar__search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  background: rgb(var(--v-theme-surface-variant));
+  border-radius: var(--app-radius-lg, 12px);
+  transition: box-shadow var(--app-transition-fast, 150ms);
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px rgb(var(--v-theme-primary));
+  }
+}
+
+.crud-bar__search-icon {
+  color: rgb(var(--v-theme-on-surface-variant));
+  flex-shrink: 0;
+}
+
+.crud-bar__search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.9375rem;
+  color: rgb(var(--v-theme-on-surface));
+  outline: none;
+  min-width: 0;
+
+  &::placeholder {
+    color: rgb(var(--v-theme-on-surface-variant));
+  }
+}
+
+.crud-bar__search-clear {
+  flex-shrink: 0;
+  color: rgb(var(--v-theme-on-surface-variant));
+}
+
+// Dark theme - Search
+.v-theme--dark .crud-bar__search-container {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+// =============================================
+// USER MENU (Dropdown)
+// =============================================
+.user-menu {
+  overflow: hidden;
+}
+
+.user-menu__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.user-menu__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-menu__name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: rgb(var(--v-theme-on-surface));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-menu__email {
+  font-size: 0.8125rem;
+  color: rgb(var(--v-theme-on-surface-variant));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-menu__list {
+  padding: 8px !important;
+}
+
+.user-menu__footer {
+  padding: 12px 16px 16px;
+}
+
+// =============================================
+// NAVIGATION DRAWER
+// =============================================
+.app-drawer {
+  border-right: none !important;
+}
+
+// Drawer Header
+.app-drawer__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 16px;
+}
+
+.app-drawer__logo {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--v-theme-primary), 0.12);
+  border-radius: var(--app-radius-md, 12px);
+}
+
+.app-drawer__brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-drawer__brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgb(var(--v-theme-on-surface));
+  line-height: 1.2;
+}
+
+.app-drawer__brand-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgb(var(--v-theme-primary));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// Drawer Navigation
+.app-drawer__nav {
+  padding: 8px 12px !important;
+}
+
+.app-drawer__item {
+  margin-bottom: 4px;
+  border-radius: var(--app-radius-md, 12px) !important;
+
+  &:deep(.v-list-item__prepend) {
+    width: auto;
+  }
+}
+
+.app-drawer__subitem {
+  margin-left: 8px;
+  border-radius: var(--app-radius-md, 12px) !important;
+}
+
+.app-drawer__subheader {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgb(var(--v-theme-on-surface-variant));
+  padding: 16px 16px 8px;
+}
+
+// Drawer Icon Containers
+.app-drawer__icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--app-radius-sm, 8px);
+  margin-right: 12px;
+  transition: transform var(--app-transition-fast, 150ms);
+
+  .app-drawer__item:hover & {
+    transform: scale(1.05);
+  }
+}
+
+// Icon color variants
+.app-drawer__icon--primary {
+  background: rgba(var(--v-theme-primary), 0.12);
+  color: rgb(var(--v-theme-primary));
+}
+
+.app-drawer__icon--secondary {
+  background: rgba(var(--v-theme-secondary), 0.12);
+  color: rgb(var(--v-theme-secondary));
+}
+
+.app-drawer__icon--success {
+  background: rgba(var(--v-theme-success), 0.12);
+  color: rgb(var(--v-theme-success));
+}
+
+.app-drawer__icon--error {
+  background: rgba(var(--v-theme-error), 0.12);
+  color: rgb(var(--v-theme-error));
+}
+
+.app-drawer__icon--warning {
+  background: rgba(var(--v-theme-warning), 0.12);
+  color: rgb(var(--v-theme-warning));
+}
+
+.app-drawer__icon--info {
+  background: rgba(var(--v-theme-info), 0.12);
+  color: rgb(var(--v-theme-info));
+}
+
+// Dark theme - Drawer
+.v-theme--dark .app-drawer {
+  background: rgb(var(--v-theme-surface-bright)) !important;
+}
+
+// =============================================
+// LOADING STATES
+// =============================================
+.app-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.app-loading__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-loading__text {
+  font-size: 0.9375rem;
+  color: rgb(var(--v-theme-on-surface-variant));
+}
+
+// =============================================
+// CENTERED CARD STATE (e.g., login, shift required)
+// =============================================
+.app-centered-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.app-centered-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+  padding: 48px 32px;
+  background: rgb(var(--v-theme-surface));
+  border-radius: var(--app-radius-xl, 20px);
+  box-shadow: var(--app-shadow-lg);
+}
+
+.app-centered-card__icon {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--v-theme-primary), 0.12);
+  border-radius: 50%;
+  margin-bottom: 24px;
+}
+
+.app-centered-card__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(var(--v-theme-on-surface));
+  margin-bottom: 8px;
+}
+
+.app-centered-card__description {
+  font-size: 0.9375rem;
+  color: rgb(var(--v-theme-on-surface-variant));
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+// Dark theme - Centered Card
+.v-theme--dark .app-centered-card__content {
+  background: rgb(var(--v-theme-surface-bright));
+}
+
+// =============================================
+// DIALOG / BOTTOM SHEET COMMON STYLES
+// =============================================
+.app-dialog {
+  border-radius: var(--app-radius-lg, 16px) !important;
+  overflow: hidden;
+}
+
+.app-dialog__header {
+  background: transparent !important;
+}
+
+.app-dialog__section {
+  padding: 0 16px;
+}
+
+.app-dialog__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgb(var(--v-theme-on-surface-variant));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// Bottom Sheet
+.app-sheet__card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--app-radius-lg, 16px) var(--app-radius-lg, 16px) 0 0 !important;
+}
+
+.app-sheet__header {
+  background: rgb(var(--v-theme-surface)) !important;
+  border-bottom: 1px solid rgb(var(--v-theme-surface-variant));
+  flex-shrink: 0;
+}
+
+.app-sheet__content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.app-sheet__footer {
+  padding: 16px;
+  background: rgb(var(--v-theme-surface));
+  border-top: 1px solid rgb(var(--v-theme-surface-variant));
+}
+
+// =============================================
+// FOOTER
+// =============================================
+.social-link :deep(.v-icon) {
+  color: rgba(var(--v-theme-on-background), var(--v-disabled-opacity));
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: rgb(var(--v-theme-primary));
+  }
+}

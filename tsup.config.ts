@@ -11,5 +11,6 @@ export default defineConfig({
     // Copy SCSS files to dist
     mkdirSync('dist/styles', { recursive: true })
     copyFileSync('src/styles/settings.scss', 'dist/styles/settings.scss')
+    copyFileSync('src/styles/_components.scss', 'dist/styles/_components.scss')
   },
 })
