@@ -1,0 +1,53 @@
+{
+  "name": "@caralv27/vuetify-dobify-theme",
+  "version": "1.0.0",
+  "description": "Reusable Vuetify 3 theme preset with light/dark themes, component defaults, and design tokens",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./dist/styles/settings.scss",
+    "./styles/settings.scss": "./dist/styles/settings.scss"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "vuetify",
+    "vuetify3",
+    "theme",
+    "vue",
+    "vue3",
+    "design-system",
+    "preset"
+  ],
+  "author": "caralv27",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caralv27/vuetify-dobify-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/caralv27/vuetify-dobify-theme/issues"
+  },
+  "homepage": "https://github.com/caralv27/vuetify-dobify-theme#readme",
+  "peerDependencies": {
+    "vuetify": "^3.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vuetify": "^3.0.0"
+  }
+}
